@@ -26,8 +26,6 @@ namespace BabySmash
     using System.Speech.Synthesis;
     using System.Text;
 
-    using Newtonsoft.Json;
-
     public class Controller
     {
         [DllImport("user32.dll")]
@@ -425,7 +423,7 @@ namespace BabySmash
 
             if (jsonConfig != null)
             {
-                Dictionary<string, object> config = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonConfig);
+                Dictionary<string, object> config = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonConfig);
                 if (config.ContainsKey(key))
                 {
                     return config[key].ToString();
